@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clientes.AplicationCore", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clientes.UI.Web", "src\Clientes.UI.Web\Clientes.UI.Web.csproj", "{89E09865-8111-4564-BC27-E0FD53F27673}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "src\Infrastructure\Infrastructure.csproj", "{B7CDE0DD-0398-4191-B934-99E35CB26E9A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clientes.Infrastructure", "src\Infrastructure\Clientes.Infrastructure.csproj", "{B7CDE0DD-0398-4191-B934-99E35CB26E9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
