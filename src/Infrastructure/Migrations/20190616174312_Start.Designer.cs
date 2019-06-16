@@ -4,14 +4,16 @@ using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Clientes.Infrastructure.Migrations
 {
     [DbContext(typeof(ClientesContext))]
-    partial class ClientesContextModelSnapshot : ModelSnapshot
+    [Migration("20190616174312_Start")]
+    partial class Start
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,8 +104,7 @@ namespace Clientes.Infrastructure.Migrations
 
                     b.Property<int?>("MenuId");
 
-                    b.Property<string>("Titulo")
-                        .HasColumnType("varchar(200)");
+                    b.Property<string>("Titulo");
 
                     b.HasKey("Id");
 

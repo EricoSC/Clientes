@@ -17,5 +17,7 @@ namespace Clientes.AplicationCore.Entity
         public string CPF { get; set; }
 
         public ICollection<Contato> Contatos { get; set; }
+        public Endereco Endereco { get; set; }
+        public ICollection<ProfissaoCliente> ProfissoesClientes{ get; set; }
     }
 }
