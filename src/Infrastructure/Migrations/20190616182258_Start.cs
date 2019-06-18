@@ -27,7 +27,7 @@ namespace Clientes.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Titulo = table.Column<string>(nullable: true),
+                    Titulo = table.Column<string>(type: "varchar(200)", nullable: true),
                     MenuId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -75,7 +75,7 @@ namespace Clientes.Infrastructure.Migrations
                         column: x => x.ClienteId,
                         principalTable: "Cliente",
                         principalColumn: "ClienteId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -118,13 +118,13 @@ namespace Clientes.Infrastructure.Migrations
                         column: x => x.ClienteId,
                         principalTable: "Cliente",
                         principalColumn: "ClienteId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ProfissaoCliente_Profissao_ProfissaoId",
                         column: x => x.ProfissaoId,
                         principalTable: "Profissao",
                         principalColumn: "ProfissaoId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

@@ -160,7 +160,7 @@ namespace Clientes.Infrastructure.Migrations
                     b.HasOne("Clientes.AplicationCore.Entity.Cliente", "Cliente")
                         .WithMany("Contatos")
                         .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Clientes.AplicationCore.Entity.Endereco", b =>
@@ -183,12 +183,12 @@ namespace Clientes.Infrastructure.Migrations
                     b.HasOne("Clientes.AplicationCore.Entity.Cliente", "Cliente")
                         .WithMany("ProfissoesClientes")
                         .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Clientes.AplicationCore.Entity.Profissao", "Profissao")
                         .WithMany("ProfissoesClientes")
                         .HasForeignKey("ProfissaoId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }

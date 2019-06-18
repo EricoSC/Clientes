@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Clientes.Infrastructure.Migrations
 {
     [DbContext(typeof(ClientesContext))]
-    [Migration("20190616174312_Start")]
+    [Migration("20190616182258_Start")]
     partial class Start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -104,7 +104,8 @@ namespace Clientes.Infrastructure.Migrations
 
                     b.Property<int?>("MenuId");
 
-                    b.Property<string>("Titulo");
+                    b.Property<string>("Titulo")
+                        .HasColumnType("varchar(200)");
 
                     b.HasKey("Id");
 
@@ -161,7 +162,7 @@ namespace Clientes.Infrastructure.Migrations
                     b.HasOne("Clientes.AplicationCore.Entity.Cliente", "Cliente")
                         .WithMany("Contatos")
                         .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Clientes.AplicationCore.Entity.Endereco", b =>
@@ -184,12 +185,12 @@ namespace Clientes.Infrastructure.Migrations
                     b.HasOne("Clientes.AplicationCore.Entity.Cliente", "Cliente")
                         .WithMany("ProfissoesClientes")
                         .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Clientes.AplicationCore.Entity.Profissao", "Profissao")
                         .WithMany("ProfissoesClientes")
                         .HasForeignKey("ProfissaoId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }
