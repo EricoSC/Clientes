@@ -12,19 +12,21 @@ namespace Clientes.Infrastructure.Repository
     public class EFRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         protected readonly ClientesContext _context;
+        private ClienteRepository context;
 
         public EFRepository(ClientesContext context)
         {
             _context = context;
         }
-        public TEntity Adicionar(TEntity entity)
+
+        public virtual TEntity Adicionar(TEntity entity)
         {
             _context.Set<TEntity>().Add(entity);
             _context.SaveChanges();
             return entity;
         }
 
-        public void Atulizar(TEntity entity)
+        public virtual void Atulizar(TEntity entity)
         {
             _context.Entry(entity).State = EntityState.Modified;
             _context.SaveChanges();
@@ -36,7 +38,7 @@ namespace Clientes.Infrastructure.Repository
             
         }
 
-        public TEntity ObterPorId(int id)
+        public virtual TEntity ObterPorId(int id)
         {
             return _context.Set<TEntity>().Find(id);
         }
